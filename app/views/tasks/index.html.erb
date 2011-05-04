@@ -1,17 +1,17 @@
 <h1>Listing tasks</h1>
 
 <table>
+
+<tr><td colspan='4'><%= render 'form' %></td></tr>
   <tr>
     <th>Task Desc</th>
     <th></th>
     <th></th>
     <th></th>
   </tr>
-
 <% @tasks.each do |task| %>
   <tr>
     <td><%= task.desc %></td>
-    <td><%= link_to 'Show', task %></td>
     <td><%= link_to 'Edit', edit_task_path(task) %></td>
     <td><%= link_to 'Destroy', task, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
@@ -20,4 +20,4 @@
 
 <br />
 
-<%= link_to 'New Task', new_task_path %>
+

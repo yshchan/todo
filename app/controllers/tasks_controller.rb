@@ -2,6 +2,7 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.xml
   def index
+	@task = Task.new
     @tasks = Task.all
 
     respond_to do |format|
