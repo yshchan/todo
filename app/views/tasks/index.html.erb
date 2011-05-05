@@ -1,3 +1,4 @@
+<div 
 <h1>Listing tasks</h1>
 
 <table>
@@ -10,10 +11,10 @@
     <th></th>
   </tr>
 <% @tasks.each do |task| %>
-  <tr>
+  <tr class="post">
     <td><%= task.desc %></td>
     <td><%= link_to 'Edit', edit_task_path(task) %></td>
-    <td><%= link_to 'Destroy', task, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Delete', task, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
