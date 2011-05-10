@@ -1,4 +1,32 @@
 class TasksController < ApplicationController
+
+mystring1 = "bike wash"
+mystring2 = "bike wash at bike clinic"
+mystring3 = "bike wash at bike clinic on 7 may 11"
+mystring4 = "bike wash @ bike clinic on 7 may 11 @ 10 AM"
+mystring5 = "bike wash on 7 may 11 @ 10 AM"
+mystring6 = "bike wash today at 10 AM"
+re1 = /(.*?)/
+re = /(?<task>.*)@(.*)on(.*)@(.*)/ #is [task] @ [location] on [date] @ [time]
+#/^(.*)on(.*)@(.*)/ is [task  @ [location] ]on [date] @ [time]
+#/^(.*)@(.*)on(.*)/ is [task ] @ [location]  on [date]
+#/^(.*)on(.*)/ is [task @ [location] ]   on [date]
+#myarray = mystring.scan(/^(.*)on(.*)@(.*)/)
+#myarray.each{|dsw| puts dsw}
+#puts myarray
+#/(?<task>.*) ( @ (?<location>.*)? ) on (?<date>.*) ( @ (?<time>.*)? ) /x =~ mystring4
+#/(?<task>.*) ( @ (?<location>.*)? ) on (?<date>.*) ( @ (?<time>.*) ) /x =~ mystring5
+#regex = /(?<task>.*?)(?:\s*@\s*(?<location>.*?))? (?:\s+on\s+(?<date>.*?)(?:\s*@\s*(?<time>.*))?)?\z/x
+regex=/(?<task>.(?:(?! (@|at) | on ).)+)(?: (@|at) (?<location>(?:(?! on ).)+))?(?: on (?<date>(?:(?! @ ).)+)(?: @ (?<time>.+))?)?/x
+#regex = /
+#  (?<task>.*?)
+#  (?:\s*@\s*(?<location>.*?))?
+#  (?:\s+on\s+(?<date>.*?)
+#    (?:\s*@\s*(?<time>.*))?
+#  )?
+#\z/x
+
+
   # TODO: add tags to a task
   # regex=/(?<task>.(?:(?! (@|at) | on ).)+)(?: (@|at) (?<location>(?:(?! on ).)+))?(?: on (?<date>(?:(?! @ ).)+)(?: @ (?<time>.+))?)?/x
   # GET /tasks
