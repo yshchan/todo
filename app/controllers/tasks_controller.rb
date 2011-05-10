@@ -1,4 +1,6 @@
 class TasksController < ApplicationController
+  # TODO: add tags to a task
+  # regex=/(?<task>.(?:(?! (@|at) | on ).)+)(?: (@|at) (?<location>(?:(?! on ).)+))?(?: on (?<date>(?:(?! @ ).)+)(?: @ (?<time>.+))?)?/x
   # GET /tasks
   # GET /tasks.xml
   def index
