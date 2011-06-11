@@ -6,8 +6,8 @@ mystring3 = "bike wash at bike clinic on 7 may 11"
 mystring4 = "bike wash @ bike clinic on 7 may 11 @ 10 AM"
 mystring5 = "bike wash on 7 may 11 @ 10 AM"
 mystring6 = "bike wash today at 10 AM"
-re1 = /(.*?)/
-re = /(?<task>.*)@(.*)on(.*)@(.*)/ #is [task] @ [location] on [date] @ [time]
+#re1 = /(.*?)/
+#re = /(?<task>.*)@(.*)on(.*)@(.*)/ #is [task] @ [location] on [date] @ [time]
 #/^(.*)on(.*)@(.*)/ is [task  @ [location] ]on [date] @ [time]
 #/^(.*)@(.*)on(.*)/ is [task ] @ [location]  on [date]
 #/^(.*)on(.*)/ is [task @ [location] ]   on [date]
@@ -17,7 +17,7 @@ re = /(?<task>.*)@(.*)on(.*)@(.*)/ #is [task] @ [location] on [date] @ [time]
 #/(?<task>.*) ( @ (?<location>.*)? ) on (?<date>.*) ( @ (?<time>.*)? ) /x =~ mystring4
 #/(?<task>.*) ( @ (?<location>.*)? ) on (?<date>.*) ( @ (?<time>.*) ) /x =~ mystring5
 #regex = /(?<task>.*?)(?:\s*@\s*(?<location>.*?))? (?:\s+on\s+(?<date>.*?)(?:\s*@\s*(?<time>.*))?)?\z/x
-regex=/(?<task>.(?:(?! (@|at) | on ).)+)(?: (@|at) (?<location>(?:(?! on ).)+))?(?: on (?<date>(?:(?! @ ).)+)(?: @ (?<time>.+))?)?/x
+#regex=/(?<task>.(?:(?! (@|at) | on ).)+)(?: (@|at) (?<location>(?:(?! on ).)+))?(?: on (?<date>(?:(?! @ ).)+)(?: @ (?<time>.+))?)?/x
 #regex = /
 #  (?<task>.*?)
 #  (?:\s*@\s*(?<location>.*?))?
