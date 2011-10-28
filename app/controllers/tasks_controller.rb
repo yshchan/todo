@@ -1,30 +1,14 @@
 class TasksController < ApplicationController
+# sample tasks
+# mystring1 = "bike wash"
+# mystring2 = "bike wash at bike clinic"
+# mystring3 = "bike wash at bike clinic on 7 may 11"
+# mystring4 = "bike wash @ bike clinic on 7 may 11 @ 10 AM"
+# mystring5 = "bike wash on 7 may 11 @ 10 AM"
+# mystring6 = "bike wash today at 10 AM"
+# regex=/(?<task>.(?:(?! (@|at) | on ).)+)(?: (@|at) (?<location>(?:(?! on ).)+))?(?: on (?<date>(?:(?! @ ).)+)(?: @ (?<time>.+))?)?/x
 
-mystring1 = "bike wash"
-mystring2 = "bike wash at bike clinic"
-mystring3 = "bike wash at bike clinic on 7 may 11"
-mystring4 = "bike wash @ bike clinic on 7 may 11 @ 10 AM"
-mystring5 = "bike wash on 7 may 11 @ 10 AM"
-mystring6 = "bike wash today at 10 AM"
-#re1 = /(.*?)/
-#re = /(?<task>.*)@(.*)on(.*)@(.*)/ #is [task] @ [location] on [date] @ [time]
-#/^(.*)on(.*)@(.*)/ is [task  @ [location] ]on [date] @ [time]
-#/^(.*)@(.*)on(.*)/ is [task ] @ [location]  on [date]
-#/^(.*)on(.*)/ is [task @ [location] ]   on [date]
-#myarray = mystring.scan(/^(.*)on(.*)@(.*)/)
-#myarray.each{|dsw| puts dsw}
-#puts myarray
-#/(?<task>.*) ( @ (?<location>.*)? ) on (?<date>.*) ( @ (?<time>.*)? ) /x =~ mystring4
-#/(?<task>.*) ( @ (?<location>.*)? ) on (?<date>.*) ( @ (?<time>.*) ) /x =~ mystring5
-#regex = /(?<task>.*?)(?:\s*@\s*(?<location>.*?))? (?:\s+on\s+(?<date>.*?)(?:\s*@\s*(?<time>.*))?)?\z/x
-#regex=/(?<task>.(?:(?! (@|at) | on ).)+)(?: (@|at) (?<location>(?:(?! on ).)+))?(?: on (?<date>(?:(?! @ ).)+)(?: @ (?<time>.+))?)?/x
-#regex = /
-#  (?<task>.*?)
-#  (?:\s*@\s*(?<location>.*?))?
-#  (?:\s+on\s+(?<date>.*?)
-#    (?:\s*@\s*(?<time>.*))?
-#  )?
-#\z/x
+
 
 
   # TODO: add tags to a task
@@ -71,8 +55,14 @@ mystring6 = "bike wash today at 10 AM"
   # POST /tasks
   # POST /tasks.xml
   def create
-    @task = Task.new(params[:task])
-
+    task_regex=/(?<task>.(?:(?! (@|at) | on ).)+)(?: (@|at) (?<venue>(?:(?! on ).)+))?(?: on (?<date>(?:(?! @ ).)+)(?: @ (?<time>.+))?)?/x
+    task = params[:task]
+    task_details = task_regex.match task[:desc] 
+    @task = Task.new()
+    @task.todo = task_details[:task]
+    @task.venue = task_details[:venue]
+    @task.date = task_details[:date]
+    @task.time = task_details[:time]
     respond_to do |format|
       if @task.save
         format.html { redirect_to(:action => "index", :notice => 'Task was successfully created.') }
