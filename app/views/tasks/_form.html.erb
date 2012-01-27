@@ -1,22 +1,9 @@
-<%= form_for(@task) do |f| %>
-  <% if @task.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
 
-      <ul>
-      <% @task.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    What do you want to do ?<br />
-    <%= f.text_field :desc %>
-	<%= f.submit 'Add Task'%>
-  </div>
-  <div class="actions">
-    
-  </div>
+      <div class="row well">
+        <div class="span11 offset2" >
+<%= form_for(@task) do |f|  %>
+       <%= f.text_field :desc, :class=>'xxlarge', :placeholder=>'what do you want to do?' %>
+       <%= f.submit 'Add Task', :class=>'btn primary'%>
 <% end %>
+</div>
+</div>
