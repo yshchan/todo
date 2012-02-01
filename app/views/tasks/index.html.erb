@@ -1,1 +1,8 @@
-<%= render 'form' %>
+<div class="row well">
+  <div class="span11 offset2" >
+    <%= form_for(@task) do |f|  %>
+           <%= f.text_field :desc, :class=>'xxlarge', :placeholder=>'what do you want to do?' %>
+           <%= f.submit 'Add Task', :class=>'btn primary'%>
+    <% end %>
+  </div>
+</div>
