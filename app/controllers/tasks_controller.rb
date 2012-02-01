@@ -1,18 +1,4 @@
 class TasksController < ApplicationController
-# sample tasks
-# mystring1 = "bike wash"
-# mystring2 = "bike wash at bike clinic"
-# mystring3 = "bike wash at bike clinic on 7 may 11"
-# mystring4 = "bike wash @ bike clinic on 7 may 11 @ 10 AM"
-# mystring5 = "bike wash on 7 may 11 @ 10 AM"
-# mystring6 = "bike wash today at 10 AM"
-# regex=/(?<task>.(?:(?! (@|at) | on ).)+)(?: (@|at) (?<location>(?:(?! on ).)+))?(?: on (?<date>(?:(?! @ ).)+)(?: @ (?<time>.+))?)?/x
-
-
-
-
-  # TODO: add tags to a task
-  # regex=/(?<task>.(?:(?! (@|at) | on ).)+)(?: (@|at) (?<location>(?:(?! on ).)+))?(?: on (?<date>(?:(?! @ ).)+)(?: @ (?<time>.+))?)?/x
   # GET /tasks
   # GET /tasks.xml
   def index

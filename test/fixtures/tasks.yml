@@ -1,7 +1,18 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-
 one:
-  desc: MyString
+  desc: "bike wash @ bike clinic on 7 may 11 @ 10 AM"
 
 two:
-  desc: MyString
+  desc: "bike wash on 7 may 11 @ 10 AM"
+
+three:
+  desc: "bike wash at bike clinic on 7 may 11"
+
+four:
+  desc: "bike wash today at 10 AM"
+
+five:
+  desc: "bike wash at bike clinic"
+
+six:
+  desc: "bike wash"
